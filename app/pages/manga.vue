@@ -8,7 +8,7 @@ const navigationList = [
   { to: `/manga/${mangaId}/persons`, label: '制作人员' },
 ]
 
-const { data: manga } = await useFetch<any>(`https://api.bgm.tv/v0/subjects/${mangaId}`)
+const { data: manga } = await useFetch<any>(`/api/subjects/${mangaId}`)
 
 const formattedData = formatManga(manga.value)
 </script>

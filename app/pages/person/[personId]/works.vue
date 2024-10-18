@@ -4,9 +4,9 @@ const { data } = defineProps<{
 }>()
 
 const route = useRoute()
-const personId = computed(() => route.params.personId)
+const personId = route.params.personId
 
-const { data: subjects } = await useFetch<any>(`https://api.bgm.tv/v0/persons/${personId.value}/subjects`)
+const { data: subjects } = await useFetch<any>(`/api/persons/${personId}/subjects`)
 
 const formattedSubjects = useArrayMap(useFilter(subjects.value, ['type', 1]), formatSubject)
 </script>

@@ -6,7 +6,7 @@ const navigationList = [
   { to: `/character/${characterId}`, label: '概览' },
 ]
 
-const { data: character } = await useFetch<any>(`https://api.bgm.tv/v0/characters/${characterId}`)
+const { data: character } = await useFetch<any>(`/api/characters/${characterId}`)
 
 const formattedData = formatCharacter(character.value)
 </script>

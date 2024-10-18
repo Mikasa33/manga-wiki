@@ -30,7 +30,10 @@ const yearOptions: Option[] = Array.from({ length: 13 }, (_, index) => ({
 }))
 yearOptions.unshift(timeOptions[0]!)
 yearOptions.push(timeOptions[1]!)
-const prevYears = Array.from({ length: currentYear - 13 - 1948 }, (_, i) => currentYear - 13 - i)
+const prevYears = Array.from({ length: currentYear - 13 - 1948 }, (_, i) => ({
+  value: `${currentYear - 13 - i}`,
+  label: `${currentYear - 13 - i}年`,
+}))
 
 const filterOptions: Option[] = [
   {
@@ -89,10 +92,10 @@ const filter = ref<Record<string, any>>({
   sort: route.query.sort || sortOptions[0]!.value,
 })
 const selectYear = computed(() => {
-  if (currentYear - filter.value.year < 13) {
-    return ''
+  if (!filter.value.year || currentYear - filter.value.year < 13) {
+    return null
   }
-  return filter.value.year
+  return `${filter.value.year}年`
 })
 function handleChangeFilter(key: string, value: any) {
   filter.value[key] = value
@@ -102,7 +105,7 @@ function handleChangeFilter(key: string, value: any) {
   })
 }
 
-const { data, status } = await useFetch<RequestManga>('https://api.bgm.tv/v0/subjects', {
+const { data, status } = await useFetch<RequestManga>('/api/subjects', {
   query: computed(() => {
     return {
       ...filter.value,
@@ -155,16 +158,28 @@ const mangaTotal = computed(() => data.value?.total ?? 0)
             />
             <USelectMenu
               v-else-if="item2.value === 'prev'"
-              :model-value="selectYear"
               clear-search-on-close
-              class="w-28"
-              placeholder="往年"
               searchable
-              searchable-placeholder="输入年份"
-              color="gray"
+              searchable-placeholder="输入"
               :options="prevYears"
+              value-attribute="value"
+              class="w-20"
               @update:model-value="(value: any) => handleChangeFilter(item.value, value)"
-            />
+            >
+              <UButton
+                :color="selectYear ? 'primary' : 'gray'"
+                :variant="selectYear ? 'soft' : 'ghost'"
+                :label="selectYear ?? '选择年份'"
+              />
+
+              <template #option-empty>
+                无年份
+              </template>
+
+              <template #empty>
+                无年份
+              </template>
+            </USelectMenu>
           </template>
         </div>
       </div>
@@ -235,6 +250,7 @@ const mangaTotal = computed(() => data.value?.total ?? 0)
         v-if="!isLoading && mangaTotal > 0"
         v-model="page"
         :total="mangaTotal"
+        :page-count="24"
         :to="(value: number) => to({
           query: {
             page: value,

@@ -6,7 +6,7 @@ const { data } = defineProps<{
 const route = useRoute()
 const mangaId = route.params.mangaId
 
-const { data: persons } = await useFetch<any>(`https://api.bgm.tv/v0/subjects/${mangaId}/persons`)
+const { data: persons } = await useFetch<any>(`/api/subjects/${mangaId}/persons`)
 
 const formattedPersons = computed(() => {
   const result: any[] = []
