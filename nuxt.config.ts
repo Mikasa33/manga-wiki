@@ -36,6 +36,11 @@ export default defineNuxtConfig({
     'dayjs-nuxt',
     'nuxt-lodash',
   ],
+  nitro: {
+    experimental: {
+      openAPI: true,
+    },
+  },
   // https://ui.nuxt.com/
   ui: {
     global: true,
