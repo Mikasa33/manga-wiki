@@ -12,7 +12,7 @@ const { data, autoHeight } = defineProps<{
       :src="data.covers.medium"
       :alt="data.nameCn || data.name || '未知'"
       :class="autoHeight && 'sm:min-h-[280px] sm:h-auto'"
-      class="rounded-md object-contain sm:object-cover bg-gray-100 w-full sm:w-[210px] h-[280px] border border-gray-200 dark:border-gray-800"
+      class="rounded-md object-contain sm:object-cover bg-gray-100 dark:bg-gray-800 w-full sm:w-[210px] h-[280px] border border-gray-200 dark:border-gray-800"
     >
     <PageSubjectTitle
       :data

@@ -13,7 +13,7 @@ const { data } = defineProps<{
       loading="lazy"
       :src="data.covers.small"
       :alt="data.nameCn || data.name || '未知'"
-      class="rounded-md object-cover bg-gray-100 w-[80px] h-[80px] border border-gray-200 dark:border-gray-800"
+      class="rounded-md object-cover bg-gray-100 dark:bg-gray-800 w-[80px] h-[80px] border border-gray-200 dark:border-gray-800"
     >
     <H1
       :label="data.nameCn || data.name || '未知'"

@@ -40,7 +40,7 @@ const slicedData = computed<any[]>(() => slice ? useSlice(data, 0, count) : data
             :src="item.covers.small"
             :alt="item.name || '未知'"
             :class="size === 'large' && 'w-[80px] h-[80px]'"
-            class="rounded-md object-contain bg-gray-100 w-[60px] h-[60px] border border-gray-200 dark:border-gray-800"
+            class="rounded-md object-contain bg-gray-100 dark:bg-gray-800 w-[60px] h-[60px] border border-gray-200 dark:border-gray-800"
           >
         </div>
         <div class="flex flex-col justify-between ml-2 min-w-0">

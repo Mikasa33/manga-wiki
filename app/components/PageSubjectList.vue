@@ -38,7 +38,7 @@ const slicedData = computed<any[]>(() => slice ? useSlice(data, 0, count) : data
             loading="lazy"
             :src="item.covers.common"
             :alt="item.nameCn || item.name || '未知'"
-            class="rounded-md object-cover bg-gray-100 border border-gray-200 dark:border-gray-800"
+            class="rounded-md object-cover bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-800"
           >
         </div>
         <div class="mt-1 h-[40px] line-clamp-2 font-medium leading-5 group-hover:text-primary-500 group-hover:dark:text-primary-400">

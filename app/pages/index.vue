@@ -233,7 +233,7 @@ const mangaTotal = computed(() => data.value?.total ?? 0)
               loading="lazy"
               :src="item.images.common"
               :alt="item.name_cn || item.name || '未知'"
-              class="rounded-md object-cover bg-gray-100 border border-gray-200 dark:border-gray-800"
+              class="rounded-md object-cover bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-800"
             >
           </div>
           <div class="mt-1 text-gray-900 dark:text-white font-bold truncate group-hover:text-primary-500 group-hover:dark:text-primary-400">
