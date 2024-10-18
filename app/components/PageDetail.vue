@@ -20,12 +20,12 @@ const { data } = defineProps<{
         class="sm:hidden"
       />
 
-      <!-- <div
+      <div
         v-if="data.summary"
         class="whitespace-pre-line"
       >
         {{ data.summary }}
-      </div> -->
+      </div>
 
       <div
         v-if="data.tags?.length"
