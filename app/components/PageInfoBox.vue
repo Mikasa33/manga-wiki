@@ -19,7 +19,7 @@ const { data, autoHeight } = defineProps<{
       class="sm:hidden mt-3"
     />
     <div class="flex flex-col">
-      <div v-if="data.name" class="text-gray-600 dark:text-gray-300 mt-2">
+      <div v-if="data.name" class="mt-2">
         <span class="text-gray-900 dark:text-white font-medium">原名：</span>
         <span>{{ data.name }}</span>
       </div>
