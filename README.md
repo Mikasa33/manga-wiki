@@ -1,5 +1,7 @@
 # Manga Wiki
 
+一个基于 [Bangumi API](https://github.com/bangumi/api/) 的漫画 Wiki 网站，同时支持 PC 和移动端。
+
 Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 
 ## Setup
