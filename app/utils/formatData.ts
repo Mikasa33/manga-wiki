@@ -11,7 +11,7 @@ export function formatManga(data: any) {
     infoBox,
     chip: rating ? h('div', { class: 'text-yellow-500' }, `${rating.score}分`) : null,
     summary,
-    tags: tags.map((item: any) => ({ label: item.name })),
+    tags: tags?.map((item: any) => ({ label: item.name })),
   }
 }
 
