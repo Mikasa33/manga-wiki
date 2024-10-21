@@ -1,77 +1,44 @@
 # Manga Wiki
 
-一个基于 [Bangumi API](https://github.com/bangumi/api/) 的漫画 Wiki 网站，同时支持 PC 和移动端。
+一个使用 [Nuxt](https://nuxt.com/) 开发的漫画 Wiki 网站，同时支持 PC 和移动端。
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
-
-## Setup
-
-Make sure to install the dependencies:
+## Scripts
 
 ```bash
-# npm
-npm install
-
-# pnpm
+# 安装
 pnpm install
 
-# yarn
-yarn install
+# 启动
+pnpm dev
 
-# bun
-bun install
+# 构建
+pnpm build
+
+# 预览
+pnpm preview
 ```
 
-## Development Server
+## Thanks
 
-Start the development server on `http://localhost:3000`:
+- [bangumi/api](https://github.com/bangumi/api/)
 
-```bash
-# npm
-npm run dev
+## License
 
-# pnpm
-pnpm run dev
+<!-- automd:contributors author="Mikasa33" license="MIT" -->
 
-# yarn
-yarn dev
+Published under the [MIT](https://github.com/Mikasa33/manga-wiki/blob/main/LICENSE) license.
+Made by [@Mikasa33](https://github.com/Mikasa33) and [community](https://github.com/Mikasa33/manga-wiki/graphs/contributors) 💛
+<br><br>
+<a href="https://github.com/Mikasa33/manga-wiki/graphs/contributors">
+<img src="https://contrib.rocks/image?repo=Mikasa33/manga-wiki" />
+</a>
 
-# bun
-bun run dev
-```
+<!-- /automd -->
 
-## Production
+<!-- automd:with-automd -->
 
-Build the application for production:
+---
 
-```bash
-# npm
-npm run build
+_🤖 auto updated with [automd](https://automd.unjs.io)_
 
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+<!-- /automd -->
