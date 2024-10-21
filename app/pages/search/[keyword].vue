@@ -112,8 +112,8 @@ const mangaTotal = computed(() => data.value?.results ?? 0)
               class="rounded-md object-cover bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-800"
             >
           </div>
-          <div class="mt-1 text-gray-900 dark:text-white font-bold truncate group-hover:text-primary-500 group-hover:dark:text-primary-400">
-            {{ item.name_cn || item.name || '未知' }}
+          <div class="mt-1 h-[40px] line-clamp-2 font-medium leading-5 text-gray-900 group-hover:text-primary-500 group-hover:dark:text-primary-400">
+            {{ item.nameCn || item.name || '未知' }}
           </div>
           <!-- <div class="text-sm truncate">
             {{ findInfoBox(item.infobox, '作者') !== '未知' ? findInfoBox(item.infobox, '作者') : findInfoBox(item.infobox, '作画') }}
