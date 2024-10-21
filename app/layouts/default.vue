@@ -1,30 +1,102 @@
 <script setup lang="ts">
-const headerLinks = [
-  // {
-  //   id: 'index',
-  //   label: '首页',
-  //   icon: 'i-icon-park-outline-home',
-  //   to: '/',
-  // },
-  // {
-  //   id: 'classify',
-  //   label: '分类',
-  //   icon: 'i-icon-park-outline-all-application',
-  //   to: '/classify',
-  // },
-]
+const route = useRoute()
+const toast = useToast()
+
+const isOpen = ref(false)
+const search = ref(route.params.keyword ?? '')
+function handleSearch() {
+  if (!search.value) {
+    toast.add({ title: '搜索内容不能为空', color: 'red' })
+    return
+  }
+  navigateTo(`/search/${search.value}`, !route.path.includes('/search/')
+    ? {
+        open: {
+          target: '_blank',
+        },
+      }
+    : {})
+  isOpen.value = false
+}
 </script>
 
 <template>
   <div>
-    <UHeader :links="headerLinks">
+    <UHeader>
       <template #logo>
         <ULink to="/">
           Manga Wiki
         </ULink>
       </template>
 
+      <template #center>
+        <UInput
+          v-model="search"
+          icon="i-heroicons:magnifying-glass-20-solid"
+          placeholder="搜索漫画..."
+          color="white"
+          variant="outline"
+          :ui="{ icon: { trailing: { pointer: '' } } }"
+          class="hidden sm:flex md:w-[320px] sm:w-[200px]"
+          @keydown.enter="handleSearch"
+        >
+          <template #trailing>
+            <UButton
+              v-show="search !== ''"
+              color="gray"
+              variant="link"
+              icon="i-heroicons-x-mark-20-solid"
+              :padded="false"
+              @click="search = ''"
+            />
+          </template>
+        </UInput>
+      </template>
+
       <template #right>
+        <UButton
+          icon="i-heroicons:magnifying-glass-20-solid"
+          color="gray"
+          variant="ghost"
+          class="flex sm:hidden"
+          @click="isOpen = true"
+        />
+
+        <UModal
+          v-model="isOpen"
+          :ui="{ container: 'items-start' }"
+        >
+          <div class="flex p-4 gap-2 w-full">
+            <UInput
+              v-model="search"
+              icon="i-heroicons:magnifying-glass-20-solid"
+              placeholder="搜索漫画..."
+              color="white"
+              variant="outline"
+              :ui="{ icon: { trailing: { pointer: '' } } }"
+              class="w-full"
+              @keydown.enter="handleSearch"
+            >
+              <template #trailing>
+                <UButton
+                  v-show="search !== ''"
+                  color="gray"
+                  variant="link"
+                  icon="i-heroicons-x-mark-20-solid"
+                  :padded="false"
+                  @click="search = ''"
+                />
+              </template>
+            </UInput>
+            <UButton
+              color="gray"
+              @click="isOpen = false"
+            >
+              取消
+            </UButton>
+          </div>
+        </UModal>
+
         <UColorModeButton />
 
         <UButton

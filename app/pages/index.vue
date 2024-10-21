@@ -231,7 +231,7 @@ const mangaTotal = computed(() => data.value?.total ?? 0)
           <div class="aspect-w-3 aspect-h-4">
             <img
               loading="lazy"
-              :src="item.images.common"
+              :src="item.images?.common"
               :alt="item.name_cn || item.name || '未知'"
               class="rounded-md object-cover bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-800"
             >
